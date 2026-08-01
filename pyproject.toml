@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "policy-memory-hard-budget"
+version = "0.2.0"
+description = "A scoped policy-memory research take-home"
+requires-python = ">=3.13"
+dependencies = ["numpy>=1.26", "torch>=2.2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "ruff>=0.12"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "SIM", "UP"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
